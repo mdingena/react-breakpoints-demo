@@ -1,0 +1,17 @@
+.root {
+  min-height: 400px;
+}
+
+.resizer {
+  width: 220px;
+  height: 175px;
+  border: 1px solid #1ea7fd;
+  background: transparent;
+  cursor: default;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.resizer:focus {
+  outline: none;
+}
