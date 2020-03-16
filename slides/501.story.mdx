@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="The ResizeObserver API/API" />
+
+ResizeObservers offer a JavaScript solution.
+
+```javascript
+/* Create a callback function. */
+const callbackFn = observation => console.table(observation);
+
+/* Instantiate a ResizeObserver instance with that callback. */
+const ro = new window.ResizeObserver(callbackFn);
+
+/* Call .observe() on a bunch of elements. */
+const elements = document.querySelectorAll('section');
+elements.forEach(element => ro.observe(element));
+```
