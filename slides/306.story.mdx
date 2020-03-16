@@ -1,0 +1,24 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Page from '../src/Page'
+import Figure from '../src/Figure'
+
+<Meta title="Challenges of responsive design/Example 1" />
+
+## Challenges of responsive design
+
+But things can quickly become complicated. And still, all we are able to respond to is the window size.
+
+An example.
+
+Here is a page with two images inside it. For design reasons beyond our control, these images have to be 300 pixels wide.
+
+<Preview>
+  <Story name="test">
+    <Page width='320px'>
+      <div className='container'>
+        <Figure author='Christian Holzinger' />
+        <Figure author='Nitish Meena' />
+      </div>
+    </Page>
+  </Story>
+</Preview>
