@@ -9,5 +9,5 @@ addDecorator(storyFn => <Provider>{storyFn()}</Provider>);
 addParameters({
   options: {
     theme: themes.dark
-  },
+  }
 });
