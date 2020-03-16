@@ -6,11 +6,11 @@ import nitishMeena from './Nitish-Meena.jpg'
 const figures = {
   'Christian Holzinger': {
     src: christianHolzinger,
-    href: 'https://unsplash.com/@pixelatelier?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+    href: 'https://unsplash.com/@pixelatelier'
   },
   'Nitish Meena': {
     src: nitishMeena,
-    href: 'https://unsplash.com/@nitishm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+    href: 'https://unsplash.com/@nitishm'
   }
 }
 
