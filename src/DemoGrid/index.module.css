@@ -1,15 +1,11 @@
 .root {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
-.wrap {
-  display: flex;
-  flex-flow: row;
-  min-height: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background: #f1f1f1;
-  font-size: 7px;
+.resizer {
+  resize: horizontal;
+  overflow: auto;
 }
 
 .width {
@@ -30,4 +26,8 @@
   border: 1px solid #1ea7fd;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
+}
+
+.grid {
+  display: grid;
 }
