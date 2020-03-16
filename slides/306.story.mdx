@@ -2,25 +2,77 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import Page from '../src/Page'
 import Figure from '../src/Figure'
 
-<Meta title="Challenges of responsive design/Example 1" />
-
-## Challenges of responsive design
+<Meta title="Challenges of responsive design/Examples, part 1" />
 
 But things can quickly become complicated. And still, all we are able to respond to is the window size.
 
 An example.
 
-Here is a page with two images inside it. For design reasons beyond our control, these images have to be 300 pixels wide.
+Here is a page with two images inside it. For design reasons beyond our control, these images have to be at least 300 pixels wide.
 
-We expect mobile devices using this design to have a window size of at least 320 pixels wide. That gives our designer the freedom to add 10 pixels of padding on both sides of the column.
-
+<style>{`
+  .example-1 {
+    display: flex;
+    flex-direction: column;
+  }
+`}</style>
 <Preview>
-  <Story name="test">
+  <Story name="stacked">
     <Page width='320px'>
-      <div className='container'>
+      <div className='container example-1'>
         <Figure author='Christian Holzinger' />
         <Figure author='Nitish Meena' />
       </div>
     </Page>
   </Story>
 </Preview>
+
+We expect mobile devices using this design to have a window size of at least 320 pixels wide. That gives our designer the freedom to add 10 pixels of padding on both sides of the column.
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+Ideally, our designer would like to show these two images side-by-side when we can.
+
+Not forgetting the padding on both sides, and perhaps adding a 10 pixel gutter in between, we need to have at least 630 pixels of screen real estate. So off we go to write our @media query.
+
+```css
+@media (min-width: 630px) {
+  .container {
+    flex-direction: row;
+  }
+  .container figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+```
+
+<style>{`
+  .example-2 {
+    display: flex;
+    flex-direction: row;
+  }
+  .example-2 figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+`}</style>
+<Preview>
+  <Story name="side-by-side">
+    <Page width='630px'>
+      <div className='container example-2'>
+        <Figure author='Christian Holzinger' />
+        <Figure author='Nitish Meena' />
+      </div>
+    </Page>
+  </Story>
+</Preview>
+
+Note that we have not defined the 10 pixels of padding on each side of the container.
+
+This is because it's 2020, and most of us build a design out of components. The CSS for this padding is sitting in another file belonging to another component.
+
+This highlights the first complication of modern responsive design.
