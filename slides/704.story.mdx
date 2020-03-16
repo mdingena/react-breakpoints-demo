@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Setup the provider" />
+
+First, give your app a `ResizeObserverProvider`.
+
+```jsx
+import { Provider as ResizeObserverProvider } from '@envato/react-breakpoints'
+
+const App = () => (
+  <ResizeObserverProvider>
+    …
+  </ResizeObserverProvider>
+)
+```

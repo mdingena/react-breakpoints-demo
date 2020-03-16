@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Observing height and handling SSR" />
+
+Another thing to note is that you are not restricted to `widths`.
+
+Although those are generally used far more often, you _can_ have vertical breakpoints.
+
+```javascript
+const [widthMatch, heightMatch] = useBreakpoints({
+  widths: {
+    0: 'mobile',
+    769: 'tablet',
+    1025: 'desktop'
+  },
+  heights: {
+    480: 'SD', /* returns `undefined` for heights <= 479 */
+    720: 'HD Ready',
+    1080: 'Full HD',
+    2160: '4K'
+  }
+})
+```
+
+Note how `heights` doesn't define a value for heights between `0` and `480`.
+
+The hook will return `undefined` when the observed element is less than 480 pixels high. This is by design and makes sense, since you left the value for that range undefined.
+
+It's a Good Idea ™️ to provide a value for key `0` so that the hook always returns something. Now it will _only_ return `undefined` in a Server-Side Rendering scenario, which allows you to use the undefined value to fall back to another value to use in SSR.

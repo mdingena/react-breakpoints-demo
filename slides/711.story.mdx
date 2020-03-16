@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Browser support" />
+
+### Browser support
+
+Another thing you might've noticed is the usage of `box` properties. This brings me to ResizeObserver's browser support.
+
+Currently, it's not very well supported, and browsers haven't caught up with the latest spec yet.
+
+By default, any ResizeObserver only observes and reports an element's `contentRect`. But the spec also outlines `borderBoxSize`, `contentBoxSize`, and `devicePixelContentBoxSize`.
+
+You can gain access to these boxSizes by either monkey-patching `window.ResizeObserver`, or preferably by using a ponyfill.
+
+```jsx
+import { Provider as ResizeObserverProvider } from '@envato/react-breakpoints'
+import { ResizeObserver } from '@juggle/resize-observer' // Ponyfill
+
+const App = () => (
+  <ResizeObserverProvider ponyfill={ResizeObserver}>
+    …
+  </ResizeObserverProvider>
+)
+```
+
+Just pass a constructor to `ponyfill` and it'll be used instead of `window.ResizeObserver`.

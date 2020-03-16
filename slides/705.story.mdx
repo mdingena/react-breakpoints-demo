@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Observe an element" />
+
+Then, you wrap a portion of your app with an `Observe` component.
+
+Everything rendered through this component gains access to its context, which is updated with the observed element's size.
+
+```jsx
+import { Observe } from '@envato/react-breakpoints'
+
+const MyObservingComponent = () => (
+  <Observe
+    render={({ observedElementProps }) => (
+      <Parent>
+        <Sibling />
+        <aside {...observedElementProps}>
+          <Child />
+        </aside>
+      </Parent>
+    )}
+  />
+)
+```
+
+You can observe any block-like DOM element. Also, `Parent`, `Sibling`, and `Child` all have access to this sidebar's size, as they are all rendered inside `Observe`.

@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Consume the observation" />
+
+The last piece to the puzzle is to consume this information in `Parent`, `Sibling`, and/or `Child`.
+
+```jsx
+import { useBreakpoints } from '@envato/react-breakpoints'
+
+const Child = () => {
+  const [label] = useBreakpoints({
+    widths: {
+      0: 'small',
+      300: 'medium',
+      600: 'large'
+    }
+  })
+
+  return (
+    <div className={label}>
+      The observed element is currently within the {label} range.
+    </div>
+  )
+}
+```
+
+And that's it! When the sidebar element changes size, `Child` will respond accordingly.

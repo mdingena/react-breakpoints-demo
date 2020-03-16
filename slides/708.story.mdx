@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Return values" />
+
+One cool thing about this hook is that it allows you to attach any type of value to an observed width.
+
+Want to return class names? Sure! But you can return numbers, booleans, even components. Anything that makes sense for your use case.
+
+```javascript
+// Numbers
+const [visibleCarouselItems] = useBreakpoints({
+  widths: {
+    0: 1,
+    769: 3,
+    1025: 4
+  }
+})
+
+// Booleans
+const [showDropdown] = useBreakpoints({
+  widths: {
+    0: true,
+    961: false
+  }
+})
+
+// Components
+const [Component] = useBreakpoints({
+  widths: {
+    0: HamburgerMenu,
+    1381: HorizontalMenu
+  }
+})
+```

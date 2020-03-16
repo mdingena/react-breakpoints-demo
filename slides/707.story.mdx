@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Examining useBreakpoints()" />
+
+### Let's examine this hook's API.
+
+We pass the hook an `options` object with a nested `widths` object.
+
+```javascript
+const [label] = useBreakpoints({
+  widths: {
+    0: 'small',
+    300: 'medium',
+    600: 'large'
+  }
+})
+```
+
+The keys works like CSS's `(min-width)`. The values are what's returned when the observed element's width matches a `(min-width)` key.

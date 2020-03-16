@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Consuming without the hook" />
+
+### That's the setup in a nutshell. But there is more! 😱
+
+You don't _have_ to use `useBreakpoints()` to consume observations. You can directly access your breakpoint values in `Observe`'s render function.
+
+```jsx
+const MyObservingComponent = () => (
+  <Observe
+    box='border-box'
+    breakpoints={{
+      box: 'content-box',
+      widths: {
+        0: 'mobile',
+        769: 'tablet',
+        1025: 'desktop'
+      },
+      heights: {
+        0: 'SD',
+        720: 'HD-Ready',
+        1080: 'Full HD',
+        2160: '4K'
+      }
+    }}
+    render={({ observedElementProps, widthMatch, heightMatch }) => (
+      <>
+        {/* this element is given a class based on a child sidebar's width */}
+        <article className={widthMatch}>
+
+          {/* this sidebar is observed */}
+          <aside {...observedElementProps}>
+
+            {/* this component uses `useBreakpoints()` to adapt to the sidebar's size */}
+            <MyResponsiveComponent />
+
+          </aside>
+
+          {/* this component receives one of the `heights` strings defined above based on the sidebar's height */}
+          <MyVideoComponent quality={heightMatch} />
+        </article>
+
+        {/* this component also uses `useBreakpoints()` to adapt to the sidebar's size, but from outside the sidebar */}
+        <MyResponsiveComponent />
+      </>
+    )}
+  />
+);
+```
