@@ -1,0 +1,11 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Using ResizeObservers/Summary" />
+
+You create a ResizeObserver by calling its constructor with a callback function argument. This is a function that will be called every time the ResizeObserver observes a resize on the observed elements.
+
+Note how I use "elements", _plural_.
+
+**You can use a single ResizeObserver to observe multiple elements**.
+
+The only restriction here is that the ResizeObserver will use the same callback for all those elements.

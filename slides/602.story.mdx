@@ -1,0 +1,60 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import ExampleObserver from '../src/ExampleObserver'
+
+<Meta title="Using ResizeObservers/Example" />
+
+Let's create a simple ResizeObserver component.
+
+1. Create a callback function.
+1. Instantiate a ResizeObserver with that callback.
+1. Call `.observe()` on a bunch of elements.
+
+We'll also keep track of the number of times the callback is called.
+
+```javascript
+import React, { useState, useCallback, useEffect } from 'react'
+
+const ExampleObserver = ({ elementType }) => {
+  const [observations, setObservations] = useState(0)
+
+  const handleObservation = useCallback(resizeObserverEntry => {
+    setObservations(current => current + 1)
+    console.table(resizeObserverEntry)
+  }, [setObservations])
+
+  useEffect(() => {
+    const ro = new window.ResizeObserver(handleObservation)
+
+    const elements = document.querySelectorAll(elementType)
+    elements.forEach(element => ro.observe(element))
+
+    return () => {
+      ro.disconnect()
+    }
+  }, [elementType, handleObservation])
+
+  return (
+    <>
+      # of observations: <code>{observations}</code>
+    </>
+  )
+}
+
+export default ExampleObserver
+```
+
+<style>{`
+  .sbdocs-preview {
+    color: #fff;
+  }
+`}</style>
+<Preview>
+  <Story name="example">
+    <>
+      <ExampleObserver elementType='h3' />
+      <h3>I'm an <code>h3</code>!</h3>
+      <h3>Me too!</h3>
+      <h3>We're being observed. 🕵🏻‍♂️</h3>
+    </>
+  </Story>
+</Preview>
