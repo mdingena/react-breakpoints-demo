@@ -13,7 +13,7 @@ Here is a page with two images inside it. For design reasons beyond our control,
 <style>{`
   .example-1 {
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
   }
 `}</style>
 <Preview>
@@ -32,7 +32,7 @@ We expect mobile devices using this design to have a window size of at least 320
 ```css
 .container {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
 }
 ```
 
@@ -43,7 +43,7 @@ Not forgetting the padding on both sides, and perhaps adding a 10 pixel gutter i
 ```css
 @media (min-width: 630px) {
   .container {
-    flex-direction: row;
+    flex-flow: row wrap;
   }
   .container figure:not(:last-of-type) {
     margin-right: 10px;
@@ -54,7 +54,7 @@ Not forgetting the padding on both sides, and perhaps adding a 10 pixel gutter i
 <style>{`
   .example-2 {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
   }
   .example-2 figure:not(:last-of-type) {
     margin-right: 10px;

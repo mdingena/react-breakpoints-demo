@@ -1,0 +1,85 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Page from '../src/Page'
+import Sidebar from '../src/Sidebar'
+import Figure from '../src/Figure'
+
+<Meta title="Challenges of responsive design/Examples, part 3" />
+
+Here's the kicker. Let's say that all of this content lived in the "main" container, and our design dictates that at a certain point, the mobile hamburger menu is placed into a 200 pixels wide sidebar.
+
+```css
+@media (min-width: 650px) {
+  .container {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    margin-left: 20px;
+  }
+  .container figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+```
+
+<style>{`
+  .example-4 {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    margin-left: 20px;
+  }
+  .example-4 figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+`}</style>
+<Preview>
+  <Story name="sidebar">
+    <Page width='700px' padding='20px'>
+      <Sidebar />
+      <div className='container example-4'>
+        <Figure author='Christian Holzinger' />
+        <Figure author='Nitish Meena' />
+      </div>
+    </Page>
+  </Story>
+</Preview>
+
+What happens is that even though our window size is bigger, our container is now (temporarily) smaller than it was before. We can no longer show the two images side-by-side.
+
+And that's fine, but you can notice the `margin-right` on the first image.
+
+We need _more_ @media queries.
+
+```css
+@media (min-width: 650px) and (max-width: 699px) { … }
+
+@media (min-width: 700px) and (max-width: 869px) {
+  .container {
+    flex-flow: column;
+  }
+
+  .container img:not(:last-of-type) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 870px) {
+  .container {
+    flex-flow: row wrap;
+  }
+
+  .container img:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+```
+
+
+
+<details style={{ color: '#fff' }}>
+  <summary>Who can tell us where <code>870px</code> came from?</summary>
+  <br />
+  <pre>
+    700 + (610 - (700 - 260)) = 870
+  </pre>
+</details>

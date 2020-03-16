@@ -1,0 +1,44 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Page from '../src/Page'
+import Figure from '../src/Figure'
+
+<Meta title="Challenges of responsive design/Examples, part 2" />
+
+# Let's make things worse. <big><big>🤠</big></big> 
+
+When our designer decides that screens 480 pixels and above should have 20 pixels of padding on each side of the page, we'll need to hunt down which other components might be affected and change their CSS as well.
+
+If we leave our @media query at 630 pixels, suddenly those images won't fit side-by-side anymore.
+
+```css
+@media (min-width: 630px) {
+  .container {
+    flex-flow: row wrap;
+  }
+  .container figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+```
+
+<style>{`
+  .example-3 {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .example-3 figure:not(:last-of-type) {
+    margin-right: 10px;
+  }
+`}</style>
+<Preview>
+  <Story name="wrapped">
+    <Page width='630px' padding='20px'>
+      <div className='container example-3'>
+        <Figure author='Christian Holzinger' />
+        <Figure author='Nitish Meena' />
+      </div>
+    </Page>
+  </Story>
+</Preview>
+
+Of course this is a contrived example, but I'm sure if you're a frontend developer this problem speaks to you at some level.
