@@ -1,27 +1,27 @@
 import React, { useState, useCallback, useEffect } from 'react'
 
-const ExampleObserver = ({ elementType }) => {
-  const [observations, setObservations] = useState(0)
+const ExampleObserver = ({ selector }) => {
+  const [observationCount, setObservationCount] = useState(0)
 
-  const handleObservation = useCallback(resizeObserverEntry => {
-    setObservations(current => current + 1)
-    console.table(resizeObserverEntry)
-  }, [setObservations])
+  const handleObservations = useCallback(observations => {
+    setObservationCount(count => count + 1)
+    console.table(observations)
+  }, [setObservationCount])
 
   useEffect(() => {
-    const ro = new window.ResizeObserver(handleObservation)
+    const ro = new window.ResizeObserver(handleObservations)
 
-    const elements = document.querySelectorAll(elementType)
+    const elements = document.querySelectorAll(selector)
     elements.forEach(element => ro.observe(element))
 
     return () => {
       ro.disconnect()
     }
-  }, [elementType, handleObservation])
+  }, [selector, handleObservations])
 
   return (
     <>
-      # of callbacks: <code>{observations}</code>
+      # of observations: <code>{observationCount}</code>
     </>
   )
 }
