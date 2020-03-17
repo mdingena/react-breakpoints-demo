@@ -54,10 +54,13 @@
   box-shadow: 0 3px 5px -2px #222;
 }
 
-.row .details {
+.details {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+.row .details {
   margin-left: 20px;
 }
 
@@ -75,6 +78,10 @@
 
 .description {
   margin: .75em 0;
+}
+
+.stack .description {
+  margin-bottom: 1.5em;
 }
 
 .icons > svg {
