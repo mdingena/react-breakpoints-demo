@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import Sprites from '../src/Sprites'
+import { Provider } from '@envato/react-breakpoints'
+import { ResizeObserver } from '@juggle/resize-observer'
+import DemoResizer from '../src/DemoResizer'
+import DemoGrid from '../src/DemoGrid'
+import DemoItem from '../src/DemoItem'
+import cats from '../src/cats'
+
+<Meta
+  title="Demo/ItemGrid"
+  component={DemoGrid}
+  decorators={[
+    storyFn => (
+      <>
+        <Sprites />
+        <Provider ponyfill={ResizeObserver}>{storyFn()}</Provider>
+      </>
+    )
+  ]}
+/>
+
+### A composition of responsive components
+
+<Story name="DemoGrid">
+  <DemoResizer init='240px'>
+    <DemoGrid>
+      <DemoItem {...cats[0]} />
+      <DemoItem {...cats[1]} />
+      <DemoItem {...cats[0]} />
+    </DemoGrid>
+  </DemoResizer>
+</Story>
