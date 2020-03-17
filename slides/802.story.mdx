@@ -1,7 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import Sprites from '../src/Sprites'
-import { Provider } from '@envato/react-breakpoints'
-import { ResizeObserver } from '@juggle/resize-observer'
 import DemoResizer from '../src/DemoResizer'
 import DemoGrid from '../src/DemoGrid'
 import DemoItem from '../src/DemoItem'
@@ -14,7 +12,7 @@ import cats from '../src/cats'
     storyFn => (
       <>
         <Sprites />
-        <Provider ponyfill={ResizeObserver}>{storyFn()}</Provider>
+        {storyFn()}
       </>
     )
   ]}
