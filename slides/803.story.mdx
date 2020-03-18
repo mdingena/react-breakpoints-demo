@@ -1,6 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import Sprites from '../src/Sprites'
-import DemoResizer from '../src/DemoResizer'
+import Resizer from '../src/Resizer'
 import TruncatedList from '../src/TruncatedList'
 import items from '../src/TruncatedList.data'
 
@@ -9,7 +9,7 @@ import items from '../src/TruncatedList.data'
 ### Truncated horizontal menu
 
 <Story name="TruncatedList">
-  <DemoResizer init='240px'>
+  <Resizer init='240px'>
     <TruncatedList
       items={
         items.map(item => ({ item, order: Math.random() }))
@@ -17,5 +17,5 @@ import items from '../src/TruncatedList.data'
           .map(({ item }) => item)
       }
     />
-  </DemoResizer>
+  </Resizer>
 </Story>

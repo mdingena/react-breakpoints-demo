@@ -1,8 +1,8 @@
 import React from 'react'
 import { useResizeObserver, Observe } from '@envato/react-breakpoints'
-import styles from './DemoResizer.module.css'
+import styles from './Resizer.module.css'
 
-const DemoResizer = ({ init, children }) => {
+const Resizer = ({ init, children }) => {
   const [ref, observedEntry] = useResizeObserver({ box: 'content-box' })
 
   const px = observedEntry?.borderBoxSize[0].inlineSize
@@ -37,4 +37,4 @@ const DemoResizer = ({ init, children }) => {
   )
 }
 
-export default DemoResizer
+export default Resizer

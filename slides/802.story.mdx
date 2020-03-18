@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 import Sprites from '../src/Sprites'
-import DemoResizer from '../src/DemoResizer'
+import Resizer from '../src/Resizer'
 import Grid from '../src/Grid'
 import ItemCard from '../src/ItemCard'
 import cats from '../src/cats'
@@ -21,9 +21,9 @@ import cats from '../src/cats'
 ### Composition of responsive components
 
 <Story name="Grid">
-  <DemoResizer init='240px'>
+  <Resizer init='240px'>
     <Grid>
       {cats.map(cat => <ItemCard key={cat.title} {...cat} />)}
     </Grid>
-  </DemoResizer>
+  </Resizer>
 </Story>
