@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useResizeObserver } from '@envato/react-breakpoints';
-import TruncatedListItem from './TruncatedListItem'
-import TruncatedListButton from './TruncatedListButton'
+import Item from './Item'
+import Button from './Button'
 import styles from './TruncatedList.module.css';
 
 const TruncatedList = ({ items = [] }) => {
@@ -54,7 +54,7 @@ const TruncatedList = ({ items = [] }) => {
   return (
     <div ref={ref} className={styles.root}>
       {visibleItems.map(({ id, href, text }) => (
-        <TruncatedListItem
+        <Item
           key={id}
           id={id}
           href={href}
@@ -62,7 +62,7 @@ const TruncatedList = ({ items = [] }) => {
           onResize={handleChildResize}
         />
       ))}
-      <TruncatedListButton items={hiddenItems} />
+      <Button items={hiddenItems} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import TruncatedListItem from './TruncatedListItem'
+import Item from './Item'
 import styles from './TruncatedList.module.css';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -9,7 +9,7 @@ const TruncatedListButton = ({ items }) => (
     <a className={styles.button} href='#'>&hellip;</a>
     <ul>
       {items.map(({ id, href, text }) => (
-        <TruncatedListItem
+        <Item
           key={id}
           id={id}
           href={href}
