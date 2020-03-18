@@ -1,0 +1,57 @@
+.root {
+  position: relative;
+  background-color: #3d3d3d;
+  border-top: 1px solid #4f4f4f;
+  border-bottom: 1px solid #4f4f4f;
+  box-shadow: 0 3px 5px -2px #222;
+  white-space: nowrap;
+}
+
+.link {
+  display: inline-block;
+}
+
+.button,
+.link a {
+  display: block;
+  padding: .5em 10px;
+  color: #1ea7fd;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button
+.link a:hover {
+  text-decoration: underline;
+}
+
+.list {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  width: 40px;
+  height: 100%;
+  margin: 0 10px;
+  box-shadow: inset 0 1px 5px #222;
+  color: #1ea7fd;
+  text-align: center;
+}
+
+.list ul {
+  position: absolute;
+  top: 40px;
+  right: -10px;
+  margin: 0;
+  padding: 0;
+  background-color: #3d3d3d;
+  border: 1px solid #4f4f4f;
+  text-align: left;
+}
+
+.list .link {
+  display: block;
+}
+
+.list .link a {
+  padding: .25em 10px;
+}
