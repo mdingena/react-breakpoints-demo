@@ -1,0 +1,10 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="React Breakpoints/Power users" />
+
+### Power users 💪🏻
+
+If you can't achieve what you wanted using `<Provider>`, `<Observe>`, and `useBreakpoints()`, I'm also exposing these:
+
+* a `useResizeObserver()` hook to connect a DOM element in your component to the instantiated ResizeObserver on `<Provider>`.
+* a `useResizeObserverEntry()` hook to retrieve the `ResizeObserverEntry` put on the nearest context. This is what `useBreakpoints()` uses under the hood.
