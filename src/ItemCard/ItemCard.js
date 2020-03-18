@@ -1,8 +1,8 @@
 import React from 'react'
 import { Observe } from '@envato/react-breakpoints'
-import styles from './DemoItem.module.css'
+import styles from './ItemCard.module.css'
 
-const DemoItem = ({ image, url, title, description }) => (
+const ItemCard = ({ image, url, title, description }) => (
   <Observe
     box='border-box'
     breakpoints={{
@@ -38,4 +38,4 @@ const DemoItem = ({ image, url, title, description }) => (
   />
 )
 
-export default DemoItem
+export default ItemCard
