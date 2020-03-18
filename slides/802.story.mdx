@@ -1,13 +1,13 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
 import Sprites from '../src/Sprites'
 import DemoResizer from '../src/DemoResizer'
-import DemoGrid from '../src/DemoGrid'
+import Grid from '../src/Grid'
 import DemoItem from '../src/DemoItem'
 import cats from '../src/cats'
 
 <Meta
-  title="Demo/ItemGrid"
-  component={DemoGrid}
+  title="Demo/Composition of responsive components"
+  component={Grid}
   decorators={[
     storyFn => (
       <>
@@ -22,8 +22,8 @@ import cats from '../src/cats'
 
 <Story name="DemoGrid">
   <DemoResizer init='240px'>
-    <DemoGrid>
+    <Grid>
       {cats.map(cat => <DemoItem key={cat.title} {...cat} />)}
-    </DemoGrid>
+    </Grid>
   </DemoResizer>
 </Story>

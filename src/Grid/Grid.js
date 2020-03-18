@@ -1,8 +1,8 @@
 import React from 'react'
 import { Observe } from '@envato/react-breakpoints'
-import styles from './DemoGrid.module.css'
+import styles from './Grid.module.css'
 
-const DemoGrid = ({ children }) => (
+const Grid = ({ children }) => (
   <Observe
     box='content-box'
     breakpoints={{
@@ -25,4 +25,4 @@ const DemoGrid = ({ children }) => (
   />
 )
 
-export default DemoGrid
+export default Grid
