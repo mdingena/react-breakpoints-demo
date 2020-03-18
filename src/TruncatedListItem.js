@@ -8,7 +8,7 @@ const TruncatedListItem = ({ id, href, text, onResize = () => {} }) => {
   useEffect(() => {
       const width = Math.ceil(observedEntry?.borderBoxSize[0].inlineSize) || 0;
       onResize(id, width);
-  }, [observedEntry]);
+  }, [id, onResize, observedEntry]);
 
   return (
     <div ref={ref} className={styles.link}>

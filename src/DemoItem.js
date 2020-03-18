@@ -15,7 +15,7 @@ const DemoItem = ({ image, url, title, description }) => (
     render={({ observedElementProps, widthMatch: className }) => (
       <div className={className} {...observedElementProps}>
         <div className={styles.ratio}>
-          <img className={styles.image} src={image} alt='demo image' />
+          <img className={styles.image} src={image} alt='cat' />
         </div>
         <div className={styles.details}>
           <div className={styles.title}>

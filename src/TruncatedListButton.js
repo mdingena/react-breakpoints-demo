@@ -2,6 +2,8 @@ import React from 'react';
 import TruncatedListItem from './TruncatedListItem'
 import styles from './TruncatedList.module.css';
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 const TruncatedListButton = ({ items }) => (
   <div className={styles.list}>
     <a className={styles.button} href='#'>&hellip;</a>

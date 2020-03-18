@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useResizeObserver } from '@envato/react-breakpoints';
 import TruncatedListItem from './TruncatedListItem'
 import TruncatedListButton from './TruncatedListButton'
@@ -16,7 +16,7 @@ const TruncatedList = ({ items = [] }) => {
     }
   };
 
-  const calculateCutoffIndex = () => {
+  const calculateCutoffIndex = useCallback(() => {
     const containerWidth = Math.floor(observedEntry?.contentBoxSize[0].inlineSize) || 0;
     let sumWidth = 60; // Start off at 60 (size + margin of ellipses button)
     let index = 0;
@@ -30,7 +30,7 @@ const TruncatedList = ({ items = [] }) => {
     }
 
     return index;
-  };
+  }, [items, itemWidths, observedEntry]);
 
   useEffect(() => {
     const widths = {};
@@ -46,7 +46,7 @@ const TruncatedList = ({ items = [] }) => {
   useEffect(() => {
     const index = calculateCutoffIndex();
     setCutoffIndex(index);
-  }, [itemWidths, observedEntry]);
+  }, [itemWidths, observedEntry, calculateCutoffIndex]);
 
   const visibleItems = items.slice(0, cutoffIndex);
   const hiddenItems = items.slice(cutoffIndex);
