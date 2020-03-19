@@ -8,7 +8,7 @@ const Item = ({ href, text, onResize }) => {
   useEffect(() => {
     const width = Math.ceil(observedEntry?.borderBoxSize[0].inlineSize) || 0
     onResize(width)
-  }, [observedEntry])
+  }, [observedEntry, onResize])
 
   return (
     <div className={styles.link}>
